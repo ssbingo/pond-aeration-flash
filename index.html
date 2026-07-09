@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="de">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Pond Aeration — Firmware installieren</title>
+	<meta name="description" content="ESP32-Firmware für die automatische Teichbelüftung in wenigen Minuten direkt im Browser installieren — ohne Zusatzsoftware.">
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%AB%A7%3C/text%3E%3C/svg%3E">
+	<link rel="stylesheet" href="style.css">
+	<script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+</head>
+<body>
+<header class="site">
+	<div class="bar">
+		<div class="brand"><span class="drop">🫧</span> Pond Aeration</div>
+		<nav class="lang"><a class="active" href="index.html">DE</a><a href="en.html">EN</a></nav>
+	</div>
+	<h1>Firmware auf den ESP32 installieren</h1>
+	<p class="sub">In wenigen Minuten startklar — direkt im Browser, ohne Zusatzsoftware.</p>
+</header>
+
+<main>
+	<div class="card flash">
+		<p class="mut" style="margin-bottom:16px">Schließe deinen ESP per USB an und klicke auf den Knopf. Es öffnet sich ein Fenster, in dem du den Anschluss auswählst — der Rest läuft automatisch.</p>
+		<esp-web-install-button manifest="./manifest.json">
+			<button class="btn" slot="activate">⚡ Firmware installieren</button>
+			<span slot="unsupported" class="unsupported">Dein Browser kann nicht flashen. Bitte <b>Google Chrome</b> oder <b>Microsoft Edge</b> an einem <b>Computer</b> verwenden (nicht am Handy, nicht Safari/Firefox).</span>
+			<span slot="not-allowed" class="unsupported">Bitte diese Seite über <b>https://</b> öffnen, damit der Browser den USB-Port freigeben darf.</span>
+		</esp-web-install-button>
+		<p class="small mut" style="margin-top:14px">Läuft in Chrome/Edge am PC oder Notebook. Version <span class="pill">Firmware 1.1.0</span></p>
+	</div>
+
+	<div class="card">
+		<h2>Was du brauchst</h2>
+		<ol class="steps">
+			<li><b>Das Steuergerät:</b> ein <i>Waveshare ESP32-S3-POE-ETH-8DI-8RO</i> (8 Relais, 8 Eingänge, LAN/PoE). Das ist die empfohlene Referenz-Hardware.</li>
+			<li><b>Ein USB-C-Datenkabel</b> — wichtig: ein <i>Datenkabel</i>, kein reines Ladekabel. Damit verbindest du den ESP mit dem Computer.</li>
+			<li><b>Chrome oder Edge</b> auf einem Computer (Windows, macOS, Linux). Handy-Browser, Safari und Firefox können (noch) nicht flashen.</li>
+			<li><b>Ein Netzwerkkabel</b> für den späteren Betrieb (der ESP hängt per LAN/PoE am Netzwerk).</li>
+		</ol>
+	</div>
+
+	<div class="card">
+		<h2><span class="n">1</span>Firmware aufspielen</h2>
+		<ol class="steps">
+			<li><b>ESP anstecken:</b> Verbinde den ESP mit dem USB-C-Kabel mit deinem Computer.</li>
+			<li><b>Knopf drücken:</b> Klicke oben auf <b>„Firmware installieren"</b>.</li>
+			<li><b>Anschluss wählen:</b> Es erscheint ein kleines Fenster mit einer Liste. Wähle den Eintrag deines ESP (oft „USB Serial", „CP210x" oder „CH340") und klicke <b>Verbinden</b>.</li>
+			<li><b>Installieren:</b> Bestätige mit <b>Install</b>. Der Vorgang dauert etwa <b>1–2 Minuten</b> — nichts abstecken. Am Ende startet der ESP von selbst neu.</li>
+		</ol>
+		<div class="callout ok"><span class="t">✔ Fertig</span>Der ESP läuft jetzt mit der Teichbelüftungs-Firmware. Weiter geht es im Netzwerk.</div>
+	</div>
+
+	<div class="card">
+		<h2><span class="n">2</span>Gerät öffnen</h2>
+		<p>Stecke den ESP jetzt per <b>Netzwerkkabel</b> ans Netzwerk (PoE oder separate Stromversorgung). Er holt sich automatisch eine IP-Adresse (DHCP).</p>
+		<ol class="steps">
+			<li><b>IP-Adresse finden:</b> Schau im <b>Router</b> unter den verbundenen Geräten nach „pond-aeration", oder lies sie über die serielle Ausgabe / die Geräteanzeige ab.</li>
+			<li><b>Im Browser öffnen:</b> Gib die IP-Adresse in einen Browser ein (z. B. <code>http://192.168.1.50</code>). Es öffnet sich die Bedienoberfläche des Geräts.</li>
+			<li>Auf der Oberfläche siehst du <b>Home</b> (Relais/Sensoren), <b>Schedule</b>, <b>Settings</b>, <b>Lizenz</b>, <b>Update</b> und <b>Info</b>.</li>
+		</ol>
+	</div>
+
+	<div class="card">
+		<h2><span class="n">3</span>Testphase & Freischaltung</h2>
+		<p>Die Firmware ist <b>Donationware</b>: Ein neues Gerät läuft <b>30 Tage lang voll</b> (Stufe <b>pro</b>) — du kannst alles ausprobieren. Danach fällt es auf <b>free</b> zurück, bis du einen Freischaltcode einträgst.</p>
+		<div class="callout"><span class="t">🛟 Die Sicherheit läuft immer</span>Ausfallsicherung, Not-Ventil, Trockenlaufschutz und die Hand-Taster sind <b>in jeder Stufe aktiv</b> — auch unlizenziert. Dein Teich ist nie ungeschützt.</div>
+		<div class="tiers" style="margin:14px 0">
+			<div class="tier"><span class="name">free</span> — Sicherheit + Hand-Taster + Anzeige/Überwachung (in ioBroker mitlesen).</div>
+			<div class="tier"><span class="name">community</span> — zusätzlich <b>Relais-Steuerung</b> über ioBroker und die Geräte-Oberfläche.</div>
+			<div class="tier pro"><span class="name">pro</span> — zusätzlich der <b>autonome Zeitplan</b> (läuft eigenständig ohne ioBroker weiter).</div>
+		</div>
+		<p><b>So bekommst du einen Freischaltcode:</b></p>
+		<ol class="steps">
+			<li>Öffne am Gerät die Seite <b>Lizenz</b> (<code>/license</code>) und lies deinen <b>Gerätecode</b> ab (z. B. <code>QVGJ-HFHA-V777</code>).</li>
+			<li>Schicke diesen Gerätecode mit deinem Unterstützer-Beitrag an <a href="mailto:license.pond-aeration@drcomp.de">license.pond-aeration@drcomp.de</a>.</li>
+			<li>Du erhältst per E-Mail einen <b>Freischaltcode</b>. Füge ihn auf der Seite <b>Lizenz</b> ein und klicke <b>Freischalten</b> — fertig, dauerhaft.</li>
+		</ol>
+		<p class="small mut">Der Gerätecode ist an genau dieses Gerät gebunden. Bei einem Hardware-Defekt bekommst du für das Ersatzgerät einen neuen Code.</p>
+	</div>
+
+	<div class="card">
+		<h2><span class="n">4</span>Mit ioBroker verbinden (optional)</h2>
+		<p>Für Automatisierung, Zeitpläne und Überwachung installierst du den ioBroker-Adapter <b>automatic-pond-aeration</b>, wählst das Backend <b>„ESP32 (direct)"</b> und trägst die IP des Geräts ein. Der Adapter zeigt dir den Lizenzstatus an und übernimmt die Steuerung (ab Stufe community).</p>
+		<p class="small mut">Ausführliche Anleitung: siehe das vollständige Handbuch (unten verlinkt).</p>
+	</div>
+
+	<div class="card">
+		<h2>Probleme?</h2>
+		<details>
+			<summary>Im Auswahlfenster erscheint kein Anschluss / kein ESP</summary>
+			<p>Meist ist es das <b>Kabel</b>: Viele USB-Kabel laden nur und übertragen keine Daten — nimm ein echtes Datenkabel. Probiere außerdem einen anderen USB-Port. Fehlt der USB-Treiber, installiere den passenden (<b>CP210x</b> von Silicon Labs oder <b>CH340</b>) und lade die Seite neu.</p>
+		</details>
+		<details>
+			<summary>Der Knopf ist ausgegraut oder sagt „nicht unterstützt"</summary>
+			<p>Web-Flashen geht nur mit <b>Google Chrome</b> oder <b>Microsoft Edge</b> an einem <b>Computer</b>. Handy-Browser, Safari und Firefox unterstützen die nötige USB-Schnittstelle nicht.</p>
+		</details>
+		<details>
+			<summary>Es kommt „nicht erlaubt" / kein Zugriff auf den USB-Port</summary>
+			<p>Die Seite muss über <b>https://</b> geöffnet sein (diese Seite ist es). Öffne sie nicht als lokale Datei und nicht über eine unsichere Verbindung.</p>
+		</details>
+		<details>
+			<summary>Ich finde die IP-Adresse des Geräts nicht</summary>
+			<p>Stelle sicher, dass das Netzwerkkabel steckt und der ESP Strom hat (PoE oder Netzteil). Schau im <b>Router</b> unter „verbundene Geräte" nach dem Namen <code>pond-aeration</code>. Alternativ zeigt die serielle Ausgabe die IP direkt nach dem Start.</p>
+		</details>
+	</div>
+</main>
+
+<footer>
+	<div class="links">
+		<a href="https://github.com/ssbingo/ioBroker.automatic-pond-aeration/blob/main/docs/manual/pond-aeration-manual.de.pdf">📘 Vollständiges Handbuch (PDF)</a>
+		<a href="https://github.com/ssbingo/ioBroker.automatic-pond-aeration">🧩 ioBroker-Adapter</a>
+		<a href="en.html">🇬🇧 English version</a>
+	</div>
+	Pond Aeration · Firmware installieren · flashen direkt im Browser (ESP Web Tools).
+</footer>
+</body>
+</html>

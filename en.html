@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Pond Aeration — Install the firmware</title>
+	<meta name="description" content="Install the ESP32 firmware for the automatic pond aeration in minutes — right in your browser, no extra software.">
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%AB%A7%3C/text%3E%3C/svg%3E">
+	<link rel="stylesheet" href="style.css">
+	<script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+</head>
+<body>
+<header class="site">
+	<div class="bar">
+		<div class="brand"><span class="drop">🫧</span> Pond Aeration</div>
+		<nav class="lang"><a href="index.html">DE</a><a class="active" href="en.html">EN</a></nav>
+	</div>
+	<h1>Install the firmware on your ESP32</h1>
+	<p class="sub">Ready in a few minutes — straight from your browser, no extra software.</p>
+</header>
+
+<main>
+	<div class="card flash">
+		<p class="mut" style="margin-bottom:16px">Connect your ESP over USB and press the button. A dialog opens where you pick the port — everything else is automatic.</p>
+		<esp-web-install-button manifest="./manifest.json">
+			<button class="btn" slot="activate">⚡ Install firmware</button>
+			<span slot="unsupported" class="unsupported">Your browser cannot flash. Please use <b>Google Chrome</b> or <b>Microsoft Edge</b> on a <b>computer</b> (not a phone, not Safari/Firefox).</span>
+			<span slot="not-allowed" class="unsupported">Please open this page over <b>https://</b> so the browser may access the USB port.</span>
+		</esp-web-install-button>
+		<p class="small mut" style="margin-top:14px">Works in Chrome/Edge on a desktop or laptop. Version <span class="pill">Firmware 1.1.0</span></p>
+	</div>
+
+	<div class="card">
+		<h2>What you need</h2>
+		<ol class="steps">
+			<li><b>The controller:</b> a <i>Waveshare ESP32-S3-POE-ETH-8DI-8RO</i> (8 relays, 8 inputs, LAN/PoE). This is the recommended reference hardware.</li>
+			<li><b>A USB-C data cable</b> — important: a <i>data</i> cable, not a charge-only cable. You use it to connect the ESP to the computer.</li>
+			<li><b>Chrome or Edge</b> on a computer (Windows, macOS, Linux). Phone browsers, Safari and Firefox cannot flash (yet).</li>
+			<li><b>A network cable</b> for later operation (the ESP connects to your network over LAN/PoE).</li>
+		</ol>
+	</div>
+
+	<div class="card">
+		<h2><span class="n">1</span>Flash the firmware</h2>
+		<ol class="steps">
+			<li><b>Plug in the ESP:</b> connect the ESP to your computer with the USB-C cable.</li>
+			<li><b>Press the button:</b> click <b>“Install firmware”</b> above.</li>
+			<li><b>Pick the port:</b> a small dialog with a list appears. Choose your ESP (often “USB Serial”, “CP210x” or “CH340”) and click <b>Connect</b>.</li>
+			<li><b>Install:</b> confirm with <b>Install</b>. It takes about <b>1–2 minutes</b> — don’t unplug anything. The ESP reboots on its own when done.</li>
+		</ol>
+		<div class="callout ok"><span class="t">✔ Done</span>The ESP now runs the pond-aeration firmware. Continue on the network.</div>
+	</div>
+
+	<div class="card">
+		<h2><span class="n">2</span>Open the device</h2>
+		<p>Now connect the ESP to your network with a <b>network cable</b> (PoE or a separate power supply). It gets an IP address automatically (DHCP).</p>
+		<ol class="steps">
+			<li><b>Find the IP address:</b> look in your <b>router</b> under connected devices for “pond-aeration”, or read it from the serial output / the device display.</li>
+			<li><b>Open it in a browser:</b> type the IP address into a browser (e.g. <code>http://192.168.1.50</code>). The device’s control interface opens.</li>
+			<li>The interface has <b>Home</b> (relays/sensors), <b>Schedule</b>, <b>Settings</b>, <b>Licence</b>, <b>Update</b> and <b>Info</b>.</li>
+		</ol>
+	</div>
+
+	<div class="card">
+		<h2><span class="n">3</span>Trial & activation</h2>
+		<p>The firmware is <b>donationware</b>: a new device runs <b>fully for 30 days</b> (tier <b>pro</b>) — try everything. After that it falls back to <b>free</b> until you enter an activation key.</p>
+		<div class="callout"><span class="t">🛟 Safety always runs</span>Failsafe, emergency valve, dry-run protection and the hand buttons are <b>active in every tier</b> — even unlicensed. Your pond is never left unprotected.</div>
+		<div class="tiers" style="margin:14px 0">
+			<div class="tier"><span class="name">free</span> — safety + hand buttons + monitoring (read the status in ioBroker).</div>
+			<div class="tier"><span class="name">community</span> — adds <b>relay control</b> via ioBroker and the device interface.</div>
+			<div class="tier pro"><span class="name">pro</span> — adds the <b>autonomous schedule</b> (keeps running on its own without ioBroker).</div>
+		</div>
+		<p><b>How to get an activation key:</b></p>
+		<ol class="steps">
+			<li>On the device open the <b>Licence</b> page (<code>/license</code>) and read your <b>device code</b> (e.g. <code>QVGJ-HFHA-V777</code>).</li>
+			<li>Send that device code together with your supporter contribution to <a href="mailto:license.pond-aeration@drcomp.de">license.pond-aeration@drcomp.de</a>.</li>
+			<li>You receive an <b>activation key</b> by e-mail. Paste it on the <b>Licence</b> page and click <b>Activate</b> — done, permanently.</li>
+		</ol>
+		<p class="small mut">The device code is bound to this exact device. If the hardware fails, you get a new code for the replacement.</p>
+	</div>
+
+	<div class="card">
+		<h2><span class="n">4</span>Connect to ioBroker (optional)</h2>
+		<p>For automation, schedules and monitoring, install the ioBroker adapter <b>automatic-pond-aeration</b>, choose the backend <b>“ESP32 (direct)”</b> and enter the device’s IP. The adapter shows the licence status and takes over control (from tier community upwards).</p>
+		<p class="small mut">Full instructions: see the complete manual (linked below).</p>
+	</div>
+
+	<div class="card">
+		<h2>Trouble?</h2>
+		<details>
+			<summary>No port / no ESP in the selection dialog</summary>
+			<p>Usually it’s the <b>cable</b>: many USB cables only charge and carry no data — use a real data cable. Also try a different USB port. If the USB driver is missing, install the right one (<b>CP210x</b> by Silicon Labs or <b>CH340</b>) and reload the page.</p>
+		</details>
+		<details>
+			<summary>The button is greyed out or says “not supported”</summary>
+			<p>Web flashing only works in <b>Google Chrome</b> or <b>Microsoft Edge</b> on a <b>computer</b>. Phone browsers, Safari and Firefox do not support the required USB interface.</p>
+		</details>
+		<details>
+			<summary>It says “not allowed” / no access to the USB port</summary>
+			<p>The page must be opened over <b>https://</b> (this one is). Don’t open it as a local file or over an insecure connection.</p>
+		</details>
+		<details>
+			<summary>I can’t find the device’s IP address</summary>
+			<p>Make sure the network cable is plugged in and the ESP has power (PoE or a power supply). Look in your <b>router</b> under “connected devices” for the name <code>pond-aeration</code>. Alternatively the serial output prints the IP right after boot.</p>
+		</details>
+	</div>
+</main>
+
+<footer>
+	<div class="links">
+		<a href="https://github.com/ssbingo/ioBroker.automatic-pond-aeration/blob/main/docs/manual/pond-aeration-manual.en.pdf">📘 Complete manual (PDF)</a>
+		<a href="https://github.com/ssbingo/ioBroker.automatic-pond-aeration">🧩 ioBroker adapter</a>
+		<a href="index.html">🇩🇪 Deutsche Version</a>
+	</div>
+	Pond Aeration · Install the firmware · flash straight from your browser (ESP Web Tools).
+</footer>
+</body>
+</html>

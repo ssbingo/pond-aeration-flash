@@ -1,0 +1,14 @@
+{
+	"name": "Pond Aeration Firmware",
+	"version": "1.1.0",
+	"funding_url": "https://github.com/ssbingo/ioBroker.automatic-pond-aeration",
+	"new_install_prompt_erase": true,
+	"builds": [
+		{
+			"chipFamily": "ESP32-S3",
+			"parts": [
+				{ "path": "firmware.factory.bin", "offset": 0 }
+			]
+		}
+	]
+}
