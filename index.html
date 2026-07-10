@@ -27,7 +27,7 @@
 			<span slot="unsupported" class="unsupported">Dein Browser kann nicht flashen. Bitte <b>Google Chrome</b> oder <b>Microsoft Edge</b> an einem <b>Computer</b> verwenden (nicht am Handy, nicht Safari/Firefox).</span>
 			<span slot="not-allowed" class="unsupported">Bitte diese Seite über <b>https://</b> öffnen, damit der Browser den USB-Port freigeben darf.</span>
 		</esp-web-install-button>
-		<p class="small mut" style="margin-top:14px">Läuft in Chrome/Edge am PC oder Notebook. Version <span class="pill">Firmware 1.1.7</span></p>
+		<p class="small mut" style="margin-top:14px">Läuft in Chrome/Edge am PC oder Notebook. Version <span class="pill">Firmware 1.2.0</span></p>
 	</div>
 
 	<div class="card">
@@ -77,6 +77,14 @@
 			<li>Du erhältst per E-Mail einen <b>Freischaltcode</b>. Füge ihn auf der Seite <b>Lizenz</b> ein und klicke <b>Freischalten</b> — fertig, dauerhaft.</li>
 		</ol>
 		<p class="small mut">Der Gerätecode ist an genau dieses Gerät gebunden. Bei einem Hardware-Defekt bekommst du für das Ersatzgerät einen neuen Code.</p>
+			<div class="callout warn"><span class="t">⚠ Wichtig: Nach erneutem Flashen den Freischaltcode neu eintragen</span>
+				Dein Freischaltcode wird <b>im ESP gespeichert</b>. Wenn du die Firmware <b>über diese Installer-Seite erneut aufspielst</b>, wird dieser Speicher <b>mit gelöscht</b> — der eingetragene Code ist danach weg und das Gerät startet wieder in der 30-Tage-Testphase.
+				<br><br>
+				<b>Das ist kein Beinbruch:</b> Dein <b>Gerätecode bleibt exakt derselbe</b> (er wird fest aus der Hardware abgeleitet, nicht aus dem Speicher). Damit gilt auch <b>dein bisheriger Freischaltcode unverändert weiter</b> — öffne einfach die Seite <b>Lizenz</b> am Gerät und füge <b>denselben Code</b> noch einmal ein. Du brauchst <b>keinen neuen Code</b> und musst nichts erneut anfragen. Bewahre den Freischaltcode (aus der E-Mail) also gut auf.
+			</div>
+			<div class="callout ok"><span class="t">✔ Updates behalten die Freischaltung</span>
+				Nur <b>dieser Installer</b> setzt die Freischaltung zurück. Ein normales <b>Firmware-Update über die Geräteseite „Update"</b> (Knopf <b>„Install update online"</b> oder Datei-Upload) lässt den gespeicherten Code <b>und alle Einstellungen unangetastet</b>. Für spätere Aktualisierungen also besser die Update-Seite statt des Installers nutzen.
+			</div>
 	</div>
 
 	<div class="card">
@@ -102,6 +110,10 @@
 		<details>
 			<summary>Ich finde die IP-Adresse des Geräts nicht</summary>
 			<p>Stelle sicher, dass das Netzwerkkabel steckt und der ESP Strom hat (PoE oder Netzteil). Schau im <b>Router</b> unter „verbundene Geräte" nach dem Namen <code>pond-aeration</code>. Alternativ zeigt die serielle Ausgabe die IP direkt nach dem Start.</p>
+		</details>
+		<details>
+			<summary>Nach dem (erneuten) Flashen ist meine Freischaltung weg</summary>
+			<p>Das ist normal: Der Installer überschreibt den gesamten Speicher, in dem auch der Freischaltcode liegt. Dein <b>Gerätecode ist aber unverändert</b> (er kommt aus der Hardware), also gilt <b>derselbe Freischaltcode weiter</b> — öffne am Gerät die Seite <b>Lizenz</b> und füge ihn erneut ein. Ein neuer Code ist nicht nötig. <b>Tipp:</b> Für Updates die Geräteseite <b>Update</b> nutzen (Knopf „Install update online") — die behält die Freischaltung.</p>
 		</details>
 	</div>
 </main>

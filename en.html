@@ -27,7 +27,7 @@
 			<span slot="unsupported" class="unsupported">Your browser cannot flash. Please use <b>Google Chrome</b> or <b>Microsoft Edge</b> on a <b>computer</b> (not a phone, not Safari/Firefox).</span>
 			<span slot="not-allowed" class="unsupported">Please open this page over <b>https://</b> so the browser may access the USB port.</span>
 		</esp-web-install-button>
-		<p class="small mut" style="margin-top:14px">Works in Chrome/Edge on a desktop or laptop. Version <span class="pill">Firmware 1.1.7</span></p>
+		<p class="small mut" style="margin-top:14px">Works in Chrome/Edge on a desktop or laptop. Version <span class="pill">Firmware 1.2.0</span></p>
 	</div>
 
 	<div class="card">
@@ -77,6 +77,14 @@
 			<li>You receive an <b>activation key</b> by e-mail. Paste it on the <b>Licence</b> page and click <b>Activate</b> — done, permanently.</li>
 		</ol>
 		<p class="small mut">The device code is bound to this exact device. If the hardware fails, you get a new code for the replacement.</p>
+			<div class="callout warn"><span class="t">⚠ Important: after re-flashing, re-enter your activation key</span>
+				Your activation key is <b>stored on the ESP</b>. Re-flashing the firmware <b>through this installer page wipes that storage</b> — the entered key is gone afterwards and the device starts a fresh 30-day trial.
+				<br><br>
+				<b>No problem, though:</b> your <b>device code stays exactly the same</b> (it is derived from the hardware, not from storage), so your <b>existing activation key still works</b> — just open the <b>Licence</b> page on the device and paste the <b>same key</b> again. You do <b>not</b> need a new key and don’t have to ask again. So keep the key (from the e-mail) somewhere safe.
+			</div>
+			<div class="callout ok"><span class="t">✔ Updates keep your activation</span>
+				Only <b>this installer</b> resets the activation. A normal <b>firmware update via the device’s “Update” page</b> (the <b>“Install update online”</b> button or a file upload) leaves the stored key <b>and all settings untouched</b>. So for later updates, prefer the Update page over the installer.
+			</div>
 	</div>
 
 	<div class="card">
@@ -102,6 +110,10 @@
 		<details>
 			<summary>I can’t find the device’s IP address</summary>
 			<p>Make sure the network cable is plugged in and the ESP has power (PoE or a power supply). Look in your <b>router</b> under “connected devices” for the name <code>pond-aeration</code>. Alternatively the serial output prints the IP right after boot.</p>
+		</details>
+		<details>
+			<summary>My activation is gone after (re-)flashing</summary>
+			<p>That’s expected: the installer overwrites the whole storage, which includes the activation key. But your <b>device code is unchanged</b> (it comes from the hardware), so the <b>same activation key still works</b> — open the <b>Licence</b> page on the device and paste it again. No new key needed. <b>Tip:</b> for updates use the device’s <b>Update</b> page (the “Install update online” button) — it keeps your activation.</p>
 		</details>
 	</div>
 </main>
