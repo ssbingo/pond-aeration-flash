@@ -1,6 +1,6 @@
 {
 	"name": "Pond Aeration Firmware",
-	"version": "1.3.0",
+	"version": "1.4.0",
 	"funding_url": "https://github.com/ssbingo/ioBroker.automatic-pond-aeration",
 	"new_install_prompt_erase": true,
 	"builds": [
