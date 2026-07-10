@@ -27,7 +27,7 @@
 			<span slot="unsupported" class="unsupported">Your browser cannot flash. Please use <b>Google Chrome</b> or <b>Microsoft Edge</b> on a <b>computer</b> (not a phone, not Safari/Firefox).</span>
 			<span slot="not-allowed" class="unsupported">Please open this page over <b>https://</b> so the browser may access the USB port.</span>
 		</esp-web-install-button>
-		<p class="small mut" style="margin-top:14px">Works in Chrome/Edge on a desktop or laptop. Version <span class="pill">Firmware 1.2.0</span></p>
+		<p class="small mut" style="margin-top:14px">Works in Chrome/Edge on a desktop or laptop. Version <span class="pill">Firmware 1.2.1</span></p>
 	</div>
 
 	<div class="card">
@@ -114,6 +114,10 @@
 		<details>
 			<summary>My activation is gone after (re-)flashing</summary>
 			<p>That’s expected: the installer overwrites the whole storage, which includes the activation key. But your <b>device code is unchanged</b> (it comes from the hardware), so the <b>same activation key still works</b> — open the <b>Licence</b> page on the device and paste it again. No new key needed. <b>Tip:</b> for updates use the device’s <b>Update</b> page (the “Install update online” button) — it keeps your activation.</p>
+		</details>
+		<details>
+			<summary>The router shows an old name (e.g. “espressif”) instead of “pond-aeration”</summary>
+			<p>The ESP announces its hostname over DHCP when it joins. Many routers <b>remember the first name</b> they saw for a MAC address and keep showing it even after the device sends a new one. Fix it by <b>removing the old device entry</b> / <b>resetting the DHCP lease</b> on the router (or briefly rebooting the router), then reconnect the ESP. On the device itself the correct name is always shown under <b>Info</b>. Firmware <b>≥ 1.2.1</b> also sets the name earlier during start-up so it reliably goes out in the first DHCP request.</p>
 		</details>
 	</div>
 </main>

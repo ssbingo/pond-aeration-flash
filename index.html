@@ -27,7 +27,7 @@
 			<span slot="unsupported" class="unsupported">Dein Browser kann nicht flashen. Bitte <b>Google Chrome</b> oder <b>Microsoft Edge</b> an einem <b>Computer</b> verwenden (nicht am Handy, nicht Safari/Firefox).</span>
 			<span slot="not-allowed" class="unsupported">Bitte diese Seite über <b>https://</b> öffnen, damit der Browser den USB-Port freigeben darf.</span>
 		</esp-web-install-button>
-		<p class="small mut" style="margin-top:14px">Läuft in Chrome/Edge am PC oder Notebook. Version <span class="pill">Firmware 1.2.0</span></p>
+		<p class="small mut" style="margin-top:14px">Läuft in Chrome/Edge am PC oder Notebook. Version <span class="pill">Firmware 1.2.1</span></p>
 	</div>
 
 	<div class="card">
@@ -114,6 +114,10 @@
 		<details>
 			<summary>Nach dem (erneuten) Flashen ist meine Freischaltung weg</summary>
 			<p>Das ist normal: Der Installer überschreibt den gesamten Speicher, in dem auch der Freischaltcode liegt. Dein <b>Gerätecode ist aber unverändert</b> (er kommt aus der Hardware), also gilt <b>derselbe Freischaltcode weiter</b> — öffne am Gerät die Seite <b>Lizenz</b> und füge ihn erneut ein. Ein neuer Code ist nicht nötig. <b>Tipp:</b> Für Updates die Geräteseite <b>Update</b> nutzen (Knopf „Install update online") — die behält die Freischaltung.</p>
+		</details>
+		<details>
+			<summary>Der Router zeigt statt „pond-aeration" einen alten Namen (z. B. „espressif")</summary>
+			<p>Der ESP meldet seinen Hostnamen beim Anmelden per DHCP. Viele Router <b>merken sich den zuerst gesehenen Namen</b> zu einer MAC-Adresse und zeigen ihn weiter, auch wenn das Gerät längst einen neuen sendet. So lösen: im Router den <b>alten Geräteeintrag entfernen</b> bzw. die <b>DHCP-Zuordnung/Lease zurücksetzen</b> (oder den Router kurz neu starten), dann den ESP neu verbinden. Am Gerät selbst steht der richtige Name immer unter <b>Info</b>. Firmware <b>≥ 1.2.1</b> setzt den Namen zusätzlich früher im Startablauf, damit er sicher im ersten DHCP-Request steht.</p>
 		</details>
 	</div>
 </main>
