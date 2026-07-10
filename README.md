@@ -51,35 +51,6 @@ selbst (`index.html` DE / `en.html` EN).
 
 ---
 
-## Hosting (GitHub Pages)
-
-Repo öffentlich → **Settings → Pages → Branch `main` / root**. Die Seite ist dann unter
-`https://<user>.github.io/<repo>/` erreichbar. **HTTPS ist Pflicht**, weil der Browser den USB-Port
-(Web Serial) nur über eine sichere Verbindung freigibt. Nach einem Push dauert die Veröffentlichung
-über den Pages-CDN typischerweise 1–2 Minuten.
-
----
-
-## Aktualisieren (neue Firmware-Version veröffentlichen)
-
-Der Release-Build im **privaten** Firmware-Repo erzeugt zwei Dateien:
-
-- `.pio/build/<env>/firmware.factory.bin` → hierher als **`firmware.factory.bin`** kopieren
-- `.pio/build/<env>/firmware.bin` → hierher als **`pond-aeration-ota.bin`** kopieren
-
-Danach in **`manifest.json`** das Feld `version` und die Versions-Pille in **`index.html`** und
-**`en.html`** (`Firmware x.y.z`) anpassen, committen und pushen — GitHub Pages veröffentlicht
-automatisch. Das Ein-Klick-Online-Update der Geräte liest die neue Version aus `manifest.json` und
-lädt `pond-aeration-ota.bin`.
-
-> **Wichtig — Produktions-Build:** Die hier abgelegten Binärdateien **müssen** aus dem **prod**-Profil
-> des [Schlüssel-Werkzeugs](https://github.com/ssbingo/ioBroker.automatic-pond-aeration) stammen
-> (`POND_PROFILE=prod … fw-header`, dann bauen → Schlüssel-ID **kid 2**), damit die ausgestellten
-> Freischaltcodes akzeptiert werden. Ein versehentlich veröffentlichter **dev**-Build (kid 1)
-> akzeptiert nur dev-Codes.
-
----
-
 ## Chip-Offsets (Referenz)
 
 `firmware.factory.bin` ist ein bei **Offset 0** flashbares Komplett-Image für den **ESP32-S3**
