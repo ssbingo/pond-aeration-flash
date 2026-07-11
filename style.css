@@ -65,7 +65,6 @@ main { max-width: 760px; margin: 0 auto; padding: 20px 16px 40px; }
 }
 .card.flash { text-align: center; padding: 26px 20px; }
 h2 { font-size: 18px; margin: 0 0 12px; color: var(--ink); }
-:root[data-theme="dark"] h2, @media (prefers-color-scheme: dark) { }
 h2 .n {
 	display: inline-grid; place-items: center; width: 26px; height: 26px; margin-right: 8px;
 	background: var(--teal); color: #fff; border-radius: 999px; font-size: 14px; vertical-align: -4px;
@@ -100,7 +99,6 @@ ol.steps b { color: var(--tx); }
 .tier { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; background: var(--bg); }
 .tier .name { font-weight: 800; color: var(--ink); }
 .tier.pro { border-color: var(--teal); }
-:root[data-theme="dark"] .tier .name, @media (prefers-color-scheme: dark) { }
 
 .callout { border-left: 4px solid var(--teal); background: var(--bg); border-radius: 0 10px 10px 0; padding: 12px 14px; margin: 12px 0; }
 .callout.warn { border-left-color: var(--warn); }

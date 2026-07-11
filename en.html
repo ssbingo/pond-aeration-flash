@@ -55,9 +55,9 @@
 		<h2><span class="n">2</span>Open the device</h2>
 		<p>Now connect the ESP to your network with a <b>network cable</b> (PoE or a separate power supply). It gets an IP address automatically (DHCP).</p>
 		<ol class="steps">
-			<li><b>Find the IP address:</b> look in your <b>router</b> under connected devices for “pond-aeration”, or read it from the serial output / the device display.</li>
+			<li><b>Find the IP address:</b> look in your <b>router</b> under connected devices for “pond-aeration”. (If still connected over USB, the serial output prints the IP right after boot.)</li>
 			<li><b>Open it in a browser:</b> type the IP address into a browser (e.g. <code>http://192.168.1.50</code>). The device’s control interface opens.</li>
-			<li>The interface has <b>Home</b> (relays/sensors), <b>Schedule</b>, <b>Settings</b>, <b>Licence</b>, <b>Update</b> and <b>Info</b>.</li>
+			<li>The interface has <b>Home</b> (relays/sensors), <b>Schedule</b>, <b>Settings</b>, <b>Licence</b>, <b>Update</b>, <b>Info</b> and <b>Log</b>.</li>
 		</ol>
 		<div class="callout"><span class="t">📶 No network cable at the pond?</span>Then set the device up <b>over WiFi</b>: if neither LAN nor WiFi comes up after boot, the ESP opens its own WiFi <b>“pond-aeration-setup”</b> (password <b>“pondsetup”</b>) after ~25 s. Connect your phone to it — the config page usually opens by itself (otherwise <code>http://192.168.4.1/</code>). Under <b>Settings → WiFi</b> enter your own WiFi and save; the device is then reachable on your network. <b>Important:</b> the <b>supplied antenna must be attached</b> — WiFi does not work without it.</div>
 	</div>
@@ -99,6 +99,10 @@
 		<details>
 			<summary>No port / no ESP in the selection dialog</summary>
 			<p>Usually it’s the <b>cable</b>: many USB cables only charge and carry no data — use a real data cable. Also try a different USB port. If the USB driver is missing, install the right one (<b>CP210x</b> by Silicon Labs or <b>CH340</b>) and reload the page.</p>
+		</details>
+		<details>
+			<summary>Flashing starts but then fails/stalls</summary>
+			<p>Put the ESP into <b>download mode</b> and retry: hold <b>BOOT</b>, tap <b>RESET</b>, release <b>BOOT</b> — then click “Install firmware” again. Also worth trying: a different <b>data cable</b>/USB port, closing any <b>serial monitor</b> in other apps, and reloading the browser tab. After a successful flash the S3’s USB port briefly <b>disappears and re-appears</b> — that’s normal.</p>
 		</details>
 		<details>
 			<summary>The button is greyed out or says “not supported”</summary>

@@ -55,9 +55,9 @@
 		<h2><span class="n">2</span>Gerät öffnen</h2>
 		<p>Stecke den ESP jetzt per <b>Netzwerkkabel</b> ans Netzwerk (PoE oder separate Stromversorgung). Er holt sich automatisch eine IP-Adresse (DHCP).</p>
 		<ol class="steps">
-			<li><b>IP-Adresse finden:</b> Schau im <b>Router</b> unter den verbundenen Geräten nach „pond-aeration", oder lies sie über die serielle Ausgabe / die Geräteanzeige ab.</li>
+			<li><b>IP-Adresse finden:</b> Schau im <b>Router</b> unter den verbundenen Geräten nach „pond-aeration". (Falls noch per USB verbunden, zeigt die serielle Ausgabe die IP direkt nach dem Start.)</li>
 			<li><b>Im Browser öffnen:</b> Gib die IP-Adresse in einen Browser ein (z. B. <code>http://192.168.1.50</code>). Es öffnet sich die Bedienoberfläche des Geräts.</li>
-			<li>Auf der Oberfläche siehst du <b>Home</b> (Relais/Sensoren), <b>Schedule</b>, <b>Settings</b>, <b>Lizenz</b>, <b>Update</b> und <b>Info</b>.</li>
+			<li>Auf der Oberfläche siehst du <b>Home</b> (Relais/Sensoren), <b>Schedule</b>, <b>Settings</b>, <b>Lizenz</b>, <b>Update</b>, <b>Info</b> und <b>Log</b>.</li>
 		</ol>
 		<div class="callout"><span class="t">📶 Kein Netzwerkkabel am Teich?</span>Dann richte das Gerät <b>per WLAN</b> ein: Wenn nach dem Start weder LAN noch WLAN da ist, öffnet der ESP nach ~25 s ein eigenes WLAN <b>„pond-aeration-setup"</b> (Passwort <b>„pondsetup"</b>). Verbinde dein Handy damit — die Konfigurationsseite öffnet sich meist automatisch (sonst <code>http://192.168.4.1/</code>). Unter <b>Settings → WiFi</b> dein eigenes WLAN eintragen und speichern; danach ist das Gerät in deinem WLAN erreichbar. <b>Wichtig:</b> Dafür muss die <b>mitgelieferte Antenne angesteckt</b> sein — ohne Antenne funktioniert das WLAN nicht.</div>
 	</div>
@@ -99,6 +99,10 @@
 		<details>
 			<summary>Im Auswahlfenster erscheint kein Anschluss / kein ESP</summary>
 			<p>Meist ist es das <b>Kabel</b>: Viele USB-Kabel laden nur und übertragen keine Daten — nimm ein echtes Datenkabel. Probiere außerdem einen anderen USB-Port. Fehlt der USB-Treiber, installiere den passenden (<b>CP210x</b> von Silicon Labs oder <b>CH340</b>) und lade die Seite neu.</p>
+		</details>
+		<details>
+			<summary>Das Flashen startet, bricht dann aber ab</summary>
+			<p>Setze den ESP in den <b>Download-Modus</b> und starte neu: <b>BOOT</b>-Taste gedrückt halten, kurz <b>RESET</b> tippen, <b>BOOT</b> loslassen — dann erneut „Firmware installieren". Hilft auch: ein anderes <b>Datenkabel</b>/anderer USB-Port, den <b>Serial-Monitor</b> in anderen Programmen schließen, und den Browser-Tab neu laden. Nach einem erfolgreichen Flash meldet sich der USB-Port des S3 <b>kurz ab und neu an</b> — das ist normal.</p>
 		</details>
 		<details>
 			<summary>Der Knopf ist ausgegraut oder sagt „nicht unterstützt"</summary>
